@@ -1,0 +1,59 @@
+// bountyRouter.js
+const express = require("express");
+const bountyRouter = express.Router();
+const BountyDb = require('../bountyDb.js')
+
+
+
+bountyRouter.get("/", async (req, res, next)=> {
+    try {
+        const foundBounty = await BountyDb.find()
+        res.status(200).send(foundBounty)
+        
+    } catch (error) {
+        res.status(500)
+        return next(error)
+    }
+})
+
+
+bountyRouter.get("/:id", async (req, res) => {
+    try {
+        const bountyId = req.params.id;
+        const foundBounty = await BountyDb.findById(bountyId);
+        res.send(foundBounty);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+
+bountyRouter.post("/", async (req, res, next) => {
+    try {
+        const newBounty = new BountyDb(req.body)
+        const savedBounty = await newBounty.save()
+        res.status(201).send(savedBounty)
+    } catch (error) {
+        res.status(500)
+        return next(error)
+    }
+})
+
+bountyRouter.delete("/:id", async (req, res, next) => {
+    try {
+        const deletedBounty = await BountyDb.findByIdAndDelete(req.params.id);
+        res.status(200).send(deletedBounty);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+bountyRouter.put("/:id", async (req, res, next) => {
+    try {
+        const updatedBounty = await BountyDb.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.status(200).send(updatedBounty);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+module.exports = bountyRouter

@@ -1,0 +1,98 @@
+body{
+  position:relative;
+  height: 100%;
+  margin: 0%;
+  padding: 0%;
+  background-image: url("https://cdn.pixabay.com/photo/2018/06/03/21/50/milky-way-3451655_1280.jpg");
+background-size:100% 100% ;
+background-repeat: no-repeaT;
+}
+.bgImg{
+position: absolute;
+opacity: .1;
+width: 100%;
+height: 100%;
+}
+#root {
+  margin: 0%;
+position: relative;
+
+}
+.title{
+  display: block;
+  color: rgba(240, 0, 0, 0.788);
+  background-color: rgba(66, 66, 66, 0.534);
+  margin:10px auto 2% auto ;
+  padding: 0%;
+  width: 30%;
+  height: 50px;
+  text-align: center;
+  border: 2px red solid;
+
+  
+
+}
+.submit-bounty-button{
+  display: block;
+  width: 30%;
+  height: 30px;
+  background-color: rgba(105, 0, 0, 0.274);
+  margin:0 auto;
+  color: red;
+  font-size: larger;
+}
+
+.form-container-container{
+  height: 50px;
+  background-color: rgba(134, 134, 134, 0.342);
+  border: 2px rgba(105, 0, 0, 0.274) solid;
+}
+.form-container {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr;
+justify-content: space-around;
+height: 100%;
+}
+.form-container-inputs{
+  background-color: rgba(92, 0, 0, 0.452);
+  font-size: 90%;
+  color: red;}
+
+.form-container-check:checked{
+  width: 2rem;
+  accent-color: rgba(82, 3, 0, 0.295);
+}
+.bountyList-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 1fr 1fr;
+  grid-auto-columns: 1fr 1fr;
+  grid-gap: 20px;
+  margin: 2% 3%;
+}
+.bounties :nth-child(even){
+grid-column: 2/-1;
+}
+
+.bountyList{
+  padding: 10px;
+  border: 2px red solid;
+  background-color: rgba(92, 0, 0, 0.452);
+  color: red;
+}
+.bountyList > button{
+  padding: 10px;
+  margin-left: 10px;
+  border: 2px red solid;
+  background-color: rgba(92, 0, 0, 0.452);
+  color: red;
+}
+
+.alive-txt{
+  color: red;
+text-align: center;
+align-self: center;
+font-size: 25px;
+}
